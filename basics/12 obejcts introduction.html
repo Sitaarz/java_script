@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // proste zmienne
+        let num = 10;
+
+        //notacja literału
+        let car1 = {
+            brand : "Chevrolet",
+            model : "Corvette",
+            year: 1970
+        };
+
+        console.log(car1);
+        console.log(car1.brand);
+        console.log(car1.year);
+
+        let rocket = {
+            brand: "SpaceX",
+            model: "Falcon",
+            topSpeed: 30000,
+
+            showInfo : function(){
+                console.log(this.brand, this.model, this.topSpeed)
+            }
+        }
+
+        rocket.showInfo();
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function add(a, b) {
+        let c = a + b;
+        console.log(`Wynik: ${c}`);
+      }
+
+      add(3, 7);
+
+      //definicja funkcji
+      //a,b parametry funkcji
+      function multiply(a,b) {
+        return a*b;
+      }
+      //5, 4 - argumenty funkcji
+      let result = multiply(5,4);
+
+      console.log("Result: ", result);
+
+
+      //Wyrażenie funkcyjne
+      let division = function (a,b) {
+        return a/b;
+      }
+
+      let divisionResult = division(100,3);
+      console.log("Wynik dzielenia: ", divisionResult);
+      
+      let data = 55; //zmienna globalna
+      
+      function test(){
+        let text = "Hello" //Zmienna lokalna widoczna jedynie wewnątrz funkcji
+        console.log("Wartość data: ", data);
+      }
+
+      test();
+    //   console.log("Zmienna lokalna: ", lext) // text is not defined
+    </script>
+  </body>
+</html>
