@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let data = 5;
+
+        if(data > 5){
+            console.log("Liczba w data większa od 5.")
+        }
+
+        if(data<5){
+            console.log("Liczba w data jest mniejsza od 5.")
+        }
+
+        if (data == 5){
+            console.log("Wartość w zmiennej data równa jest 5.")
+        }
+
+        let age = 20;
+
+        if(age >= 18){
+            console.log("Osoba może oddać głos.")
+        }else{
+            console.log("Osoba nie może jeszcze oddać głosu.")
+        }
+
+
+        let sportRanking = 1;
+
+        if(sportRanking == 1){
+            console.log("Brawo, pierwsze miejsce!")
+        } else if(sportRanking==2){
+            console.log("Drugie miejsce.")
+        } else if (sportRanking == 3){
+            console.log("Trzecie miejsce.")
+        } else {
+            console.log("Brak medalu.")
+        }
+
+        let topSpeed = 20;
+
+        switch(topSpeed){
+            case 100:
+                console.log("Prędkość 100km/h");
+                break;
+            case 150:
+                console.log("Prędkość 150km/h");
+                break;
+            case 200:
+                console.log("Prędkość 200km/h");
+                break;
+            case 310:
+            case 320:
+            case 330:
+                console.log("Prędkość powyżej 300km/h");
+                break;
+            default:
+                console.log("Brak informacji dla tej prędkości");
+        }
+    </script>
+</body>
+</html>
