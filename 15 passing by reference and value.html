@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = 10;
+        let info = data; // w typach prostych występuje kopiowanie wartości z zmiennej do zmiennej
+        console.log(data,info);
+        data = 33;
+        console.log(data,info); //33, 10 - dwa oddzielne miejsca w pamięci
+
+        obj = {
+            a: 10
+        };
+
+        let test = obj; // zachodzi skopiowanie nie wartości lecz referencji
+        
+        console.log(obj.a, test.a); //10, 10
+
+        obj.a = 15;
+
+        console.log(obj.a, test.a); // 15, 15 - dowód na to, że obie zmienne
+                                    //wskazują na to samo miejsce w pamięci
+
+        //typy proste są przekazywane przez wartości, czyli są to ich kopie
+        function something(a,b){
+            a=80;
+            return a+b;
+        }
+
+        let someA = 20;
+        let someB = 30;
+
+        console.log(something(someA, someB)); //110
+        console.log(someA, someB); //dlaej wartości 20, 30
+
+
+        let objA ={
+            a: 10
+        };
+
+        let objB = {
+            b:15
+        };
+
+        //przekazanie argumentu przez referencję
+        function foo(objA, objB){
+            objA.a = 80;
+            return objA.a + objB.b
+        }
+
+        console.log(foo(objA, objB)); //95 
+        console.log(objA.a, objB.b); //80, 15 wartość została zmieniona
+                                    //objekty zostaly przekazane przez referencję
+        
+        let arrTest = []; // pusta tablica
+        let arr = [1,3,5,6,3,2,1]; //TABLICA JEST SPECJALNYM OBJEKTEM
+
+        console.log( arr[2] ) //wypisze 5
+
+        function checkArr(arr){
+            arr[0] = 99; // tablica to objekt, wartość będzie nadpisana
+            arr.push(8)
+        }
+
+        checkArr(arr);
+
+        console.log(arr[0], arr[arr.length-1]); //99, 8 - tablica została zmodyfikowana,
+                                                //ponieważ jest obiektem
+        
+        
+    </script>
+</body>
+</html>

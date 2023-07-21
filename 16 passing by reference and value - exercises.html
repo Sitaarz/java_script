@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name: "Ania",
+            surname: "Kowalska",
+            address: {
+                postalCode: null,
+                city: null,
+                country: null
+            }
+        };
+
+        console.log(user);
+
+        function updateUser(obj, postalCode, city, country) {
+            obj.address.postalCode = postalCode;
+            obj.address.city = city;
+            obj.address.country = country;
+        }
+
+        updateUser(user, "21-37", "Wawa", "Purland")
+
+        console.log(user);
+    </script>
+</body>
+</html>
