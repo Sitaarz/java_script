@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        function setContentToHTML(id, content){
+            let div = document.getElementById(id);
+            div.innerHTML = content;
+        }
+
+        // event load pozwala na uruchomienie zawartości funkcji anonimowej po zbudowaniu drzewa DOM
+        window.addEventListener("load", function(){
+            console.log("DOM załadowany");
+            setContentToHTML("content2", "<b>HelloWorld</b>")
+        });
+
+        window.onload = function(){
+            console.log("onLoad czyli load event")
+            
+        }
+    </script>
+
+    <div id="content"></div>
+    <div id="content2"></div>
+  </body>
+</html>

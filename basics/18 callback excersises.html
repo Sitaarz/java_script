@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1">Double click to send information</button>
+
+    <script>
+        function button_1Function(event){
+            console.log("Button was clicked");
+
+            //event to obiekt zdarzenia
+            console.log(event)
+            console.log(event.target)
+            console.log(event.target.id)
+        }
+
+        document.getElementById("button1")
+                    .addEventListener("dblclick", button_1Function);
+    </script>
+</body>
+</html>

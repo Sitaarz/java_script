@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #calc {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 10px;
+      max-width: 450px;
+      text-align: right;
+    }
+
+    .result {
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <div id="calc">
+      <label for="">Kapitał</label>
+      <input type="text" id="capital" value="1000" />
+
+      <label for="">Oprocentowanie</label>
+      <input type="text" name="" id="rate" value="0.04" />
+
+      <label for="">Kapitalizacja co ile miesięcy</label>
+      <input type="text" name="" id="n" value="12" />
+
+      <label for="">Na ile lat lokata</label>
+      <input type="text" name="" id="t" value="5" />
+
+      <span></span> <button id="calculate">Oblicz</button>
+
+      <label for="" class="result">Wartość końcowa</label>
+      <input type="text" name="" id="result-value" value="5" />
+    </div>
+
+    <script>
+      // capital * Math.pow( (1+(0.04/12))  , (12 * 5))
+
+      const inputCapital = document.getElementById("capital");
+      const inputRate = document.getElementById("rate");
+      const inputN = document.getElementById("n");
+      const inputT = document.getElementById("t");
+      const inputResultValue = document.getElementById("result-value");
+
+
+      // console.log(Math.floor (finalMoney) );
+
+      function calculateCompoundInterest(capital, rate, n, t){
+          let finalMoney = capital * Math.pow((1+(rate/n)), n*t);
+          return finalMoney;
+      }
+
+      document.getElementById("calculate").addEventListener("click", function(){
+          let capital = inputCapital.value;
+          let rate = inputRate.value;
+          let n = inputN.value; //kapitalizacja co rok
+          let t = inputT.value; //na ile lat lokata
+
+          let result = calculateCompoundInterest(capital,rate,n,t);
+
+          inputResultValue.value=result.toFixed(2);
+      })
+    </script>
+  </body>
+</html>
