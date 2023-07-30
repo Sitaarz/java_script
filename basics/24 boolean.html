@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // boolean - wartości logiczne: true albo false (słowa kluczowe)
+
+        let flag = false;
+
+        if(flag){
+            console.log("prawda")
+        }
+
+        if(!flag){
+            console.log("fałsz")
+        }
+
+        console.log(true); // true
+        console.log(!true); // false
+        // wykrzyknik odwraca wartość logiczną
+
+        // falsy values - fałczywe wartości
+
+        let data = ""; //falsy value
+        let data2="wyraz" //truthly value
+
+        if(data){ //następuje tutaj konwersja
+                  //z string na boolean o wartości false
+                  //gdyż string jest pusty
+            console.log("data");
+        }
+
+        if(data2){ //następuje tutaj konwersja
+                   //z string na boolean o wartości true
+                   //gdyż string jest wypełniony
+            console.log("data2");
+        }
+
+        //falsy values zawsze konwertowane na false
+        // "" pusty string
+        // 0, -0
+        // 0n big int
+        // NaN
+        // null
+        // undefined
+        // false
+
+        let data3 = null;
+
+        if(data3){
+            console.log("data3 ma wartość true")
+        }else{
+            console.log("data3 ma wartość false")
+        }
+
+
+
+        //truthly values - prawdziwe wartośći konwertowane na true
+        //"tekst"
+        // -1, 2, 5 - liczby różne od zera
+        // [], [1,2,3], [false]
+        // {}, {a:2}, window, {flag: flase}  - dowolny obiekt
+        // function funkcja() {}- funkcja
+
+        let tekst = function funkcja(){} // funkcja anonimowa
+        let obiekt = {
+            flag:false
+        }
+        if(tekst){
+            console.log("prawda, tekst",tekst);
+        }
+
+
+        if(obiekt){
+            console.log("prawda, obiekt ",obiekt);
+        }
+
+
+    </script>    
+</body>
+</html>

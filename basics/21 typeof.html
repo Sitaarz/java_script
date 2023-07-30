@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = 15;
+        let info = typeof data;
+        console.log(info); // number
+
+        if(info == "number"){
+            console.log("Data zawiera liczbę")
+        }
+
+        data = "tekst";
+
+        if(typeof data == "number"){
+            console.log("data ma liczbę")
+        }else if(typeof data == "string"){
+            console.log("Data zawiera tekst")
+        }
+
+
+        // zwracane wartości przez typeof
+        console.log(typeof 20); //number
+        console.log(typeof "tekst") // string
+        console.log(typeof "20") // string
+        console.log(typeof true) // boolean
+        console.log(typeof {}) // object
+        console.log(typeof {a:5}) // object
+        console.log(typeof undefined) //undefined
+        console.log(typeof null) //object - wyjątkowy przypadek!
+        console.log(typeof function() {}) //function
+        console.log(typeof [] ) // object
+        console.log(typeof [1,2,3] ) // object
+        console.log(typeof Symbol() ) //symbol
+        console.log (typeof 1n); //bigint
+        
+
+    </script>
+</body>
+</html>

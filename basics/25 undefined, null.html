@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a; // zmienna jest zadeklarowana
+        console.log(a); // undefined - nie ma wartości w zadeklaowanej zmiennej
+        console.log(typeof b); // UWAGA! undefined pomimo braku deklaracji
+        
+        /*
+        b;
+        błąd - Uncaught ReferenceError: b is not defined
+        w praktyce zmienna jest nie zadeklerowana bo nie ma uzytego
+        const, let lub var
+        */
+
+
+
+
+        //null - intencjonalne wskazanie, że zmienna nie ma wartości
+
+        typeof null // UWAGA zwraca object - błąd w js
+
+        //null jak i undefined to falsy values
+
+        //proste porównanie - wykona się - porównywanie wartości
+        if (null == undefined) console.log("null == undefined") // konwersja typów
+
+        //porównanie ścisłe - sprawdza czy wartości oraz typy są takie same
+
+        if (null === undefined) console.log("null === undefined"); // nie wykona się - typy się nie zgadzają
+
+        test = 5;
+        console.log(test); //5
+
+        test = null;
+        console.log(test); // null
+
+        console.log(typeof test); //object
+        //null jak i undefined należą do falsy values
+
+        if(null) console.log("nie wykona się") // null zkonwertowane na false
+        if(undefined) console.log("też się nie wykona"); // konwersja na false
+
+
+
+    </script>
+</body>
+</html>

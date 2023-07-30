@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // String - inaczej zwany jest literały znakowe, literały znakowe
+        // to ciąg znaków UTF-16
+
+        const s1 = 'To jest tekst'
+        const s2 = "To też jest tekst"
+        
+        const num = 78
+        // literał szablonu
+        const s3 = `
+            String w wielu 
+            liniach ${num}
+            wyrażenai js ${1+2+3}`
+        console.log(s3);
+
+        console.log( "Tekst".length); // 5
+
+        console.log("Tekst"[2]) //k - po indeksie pobiera się znak
+        console.log(s3[s3.length - 1]) //6
+        console.log( s3.charAt(15)) //r
+
+        console.log(s3.charCodeAt(15)) //114
+
+        //wyszukianie słów w tekscie
+        let simpleText = "Ania ma kota.";
+        let position = simpleText.indexOf("Ania");
+        console.log(position); // Ania jest pod indeksem 0
+
+        position = simpleText.lastIndexOf("Ania") // 0
+
+        // wyszukiwanie od wyznaczonego indeksu
+        position = simpleText.lastIndexOf("ma", 15);
+        console.log(position);
+
+        //trim() - wycina białe znaki z początku i końca łańcucha
+        console.log("    Jakiś tekst   ".trim());
+        console.log(`
+        
+        
+        
+        test
+        
+        
+        
+        `.trim())
+
+        //toUpperCase() - powiększanie liter
+        console.log("Ala".toUpperCase()); //ALA
+        //toLowerCase() - małe litery
+        console.log("AlA".toLowerCase()) //ala
+
+        //konkatencja łańcuchów
+        const str1 = " something"
+        const resultStr = "text" + str1;
+        console.log(resultStr) //text something
+
+        //pobieranie fragmentów z string
+        let str5 = "0123456789";
+        console.log( str5.slice(2) ) // 23456789
+        console.log( str5.slice(4, 8) ) // 4567
+        console.log( str5.slice(-3)); //789
+        console.log( str5.slice(-6, -3)) //456
+
+        // substr() pobieranie od indeksu określonej ilości znaków
+        console.log( str5.substr(0)) //0123456789
+        console.log( str5.substr(5)) //56789
+        console.log( str5.substr(5, 3)) //567 -- trzy znaki od indeksu 5
+        console.log( str5.substr(-7,2)) //34
+
+        // split() dzieli strin ze względu na przekazany znak
+        let str6 = "a b c d e";
+        let splitString = str6.split(" ");
+        console.log(splitString);
+
+        //replace() - zamiana słowa w stringu
+        str7 = "Ala ma kota"
+        let str8 = str7.replace("kota", "psa")
+        console.log(str8);
+
+        // mutowalnosc vs niemutowalnosc
+        //w JS tylko tablice i obiekty mogą być zmieniane
+        let str9 = "slowo";
+        str9[0] = "a";
+        console.log(str9); // slowo - string nie został zmieniony
+
+        let str10 = str9.replace("s","A")
+        console.log(str10); //Alowo
+
+        let arr = [1,2,3,4,5];
+        arr[0] = 3
+        console.log(arr); //[3,2,3,4,5]
+
+        let obj = {
+            a:5
+        }
+
+        obj.a=8
+
+        console.log(obj.a); //8
+
+        //Dowodzi to temu iż objekty, jak i tablice, są mutowalne.
+    </script>
+</body>
+</html>

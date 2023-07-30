@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // number - typ wartości zmiennoprzecinkowy 64 bitowy
+        // number pozwala na zapis liczb całkowitych oraz dziesiętnych
+
+        let a = 1; // liczba całkowita
+        let b = 1.254; // liczba zmiennoprzecinkowa
+        let c = 0xf // liczba szesnastkowa
+        const d = .45 // to samo co 0.45
+        
+        //maksymalna bezpieczna liczba calkowita dodatnia i ujemna
+        console.log( Number.MAX_SAFE_INTEGER); //max liczba calkowita
+        console.log (Number.MIN_SAFE_INTEGER); //min liczba całkowita
+
+        console.log(Number.isSafeInteger(9007199254740991)) //true
+        console.log(Number.isSafeInteger(9007199254740992)) //flase - to nie jest bezpieczna liczba całkowita
+
+        // NaN - Not a number - specjalna wartość, która określa, że coś nie jest liczbą
+        const someNaN = 0 / 0;
+        console.log(someNaN); //NaN
+
+        console.log(Math.sqrt(-1)); //NaN
+
+        // parseInt() - konwersja łańcucha na liczbę
+
+        let someNum = parseInt("12.345")
+        console.log(someNum); //12 liczba calkowita
+        console.log(parseInt("teskt12.345")); //NaN - kkonwersja nie udana
+
+        console.log( isNaN(0/0)); // true
+        console.log( isNaN(67)) //false
+
+        // Infinity, iInfinity - nieskończoność
+        let infinityPositive = 1/0; //Infinity
+        console.log(!Number.isFinite(infinityPositive)) // ture
+        console.log(Number.isFinite(10)) // true
+
+        console.log(Number.POSITIVE_INFINITY) // Infinity
+        console.log(Number.NEGATIVE_INFINITY) // -Infinity
+
+        // parseFloat
+        console.log(Number.parseFloat("12.7443teskt")); // 12.7554
+        
+        // isInteger() - czy jest liczbą całkowitą
+
+        console.log(Number.isInteger(2))//true
+        console.log(Number.isInteger(10/3)) // false
+
+        // toFixed(n) - ucina liczbę do n cyfr po przecinku
+        console.log( 22.234.toFixed(2));
+        console.log( 22.234.toFixed(5)); //22.23400
+
+        // zaokrąglanie liczb
+        // round() - do najbliższej liczby całkowitje
+        console.log(Math.round(1.5)) // 2
+        console.log(Math.floor(1.57)) // 1
+        console.log(Math.ceil(1.0000001)) // 2
+        
+
+
+
+    </script>
+</body>
+</html>
