@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // hoisting - przeniesienie przez interpreter deklaracji zmiennych oraz deklaracji funkcji na początekprogramu
+        // przypisanie pozostaje jednak w tym samym miejscu
+
+        // w przypadku let oraz const również występuje hoisting
+        // jednak nie mają one na starcie przypisywanych wartości undefined tak jak w przypadku var
+
+        // console.log(a) //Uncaught ReferenceError: can't access lexical declaration 'a' before initialization
+        // let a = 5;
+
+        // console.log(b); // undefined
+        // var b = 6;
+
+        let data = 5
+
+        if(true){
+            data=25
+            //temporal dead zone
+            let data = 5 //Uncaught ReferenceError: can't access lexical declaration 'data' before initialization
+            // Wszytko co znajduje się w bloku będzie odnosiło się do zadeklarowanej lokalnej zmiennej data
+        }
+    </script>
+</body>
+</html>
