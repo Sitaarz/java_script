@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //blok kodu - instrukcje zawarte pomiędzy parą nawiasów klamrowych
+        var someData = 100;
+
+        function foo(arg){ // arg jest zmienną lokalną
+            var someData = 10; // następuje przesłonięcie zmiennej globalnej
+            console.log("Wartość someData w funkcji: ", someData)
+            console.log("Globalne someData: ", window.someData);
+        }
+
+        foo();
+        console.log("A oto wartość zmiennej someData poza funkcją: ", someData)
+    </script>
+</body>
+</html>
