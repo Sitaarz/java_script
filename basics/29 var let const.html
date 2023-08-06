@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = 5;   // ten sposób istnieje od zawsze
+                        // zakres funkcyjny
+
+        if(true){
+            var text = "txt";
+        }
+        console.log(text); // Wypisuje txt
+
+        function foo(){
+            var test = 10
+        }
+        foo();
+        // console.log(test); //Uncaught ReferenceError: test is not defined
+        // zmienna zadeklarowana za pomocą var ogranicza się do zakresu funkcji
+
+
+
+
+        let info = 10;  // dodany w ES6 (EcmaScript 2015)  
+                        // zakres blokowy
+
+        const element = 25; // dodany w ES6 (EcmaScript 2015)
+                            // stała - nie możemy zmieniać
+                            // nalezy zainicjalizować podczas deklaracji
+                            // zakres blokowy
+        
+        
+        if(true){
+            let zmienna=5;
+        }
+        // console.log(zmienna) // Uncaught ReferenceError: zmienna is not defined
+        
+
+        
+
+    </script>
+</body>
+</html>
