@@ -9,15 +9,56 @@
     <script>
         //blok kodu - instrukcje zawarte pomiędzy parą nawiasów klamrowych
         var someData = 100;
-
+        
         function foo(arg){ // arg jest zmienną lokalną
             var someData = 10; // następuje przesłonięcie zmiennej globalnej
             console.log("Wartość someData w funkcji: ", someData)
             console.log("Globalne someData: ", window.someData);
+            b=11 //zmienna globalna!
         }
 
         foo();
-        console.log("A oto wartość zmiennej someData poza funkcją: ", someData)
+        console.log("A oto wartość zmiennej someData poza funkcją: ", someData);
+        console.log("A to zmienna globalna b: ",b);
+
+        // zmienne zadeklarowane za pomocą let oraz const mają zakres blokowy
+        // zmienne zadeklarowane za pomocą var mają zakres funkcyjny lub globalny
+
+        function doSomething(){
+            "use strict"; //strict mode włączony
+            var a=5;
+            c=10;
+            console.log("Strict")
+        }
+        // doSomething(); // Uncaught ReferenceError: assignment to undeclared variable c
+
+        for(var i=0; i<10;i++){
+            // some code
+        }
+
+        console.log(i); // dostęp do zmiennej poza blokiem 
+
+        if(true){ // w przypadku false blok się nie wykona, zatem blockData nie zostanie zadeklarowane
+            var blockData = 1;
+        }
+
+        console.log(blockData);
+
+
+        // var pozwala na ponowną deklarację zmiennej
+        var someVar = 10;
+        var someVar = 11;
+        console.log("Przesłonięta zmienna someVar: ", someVar) // 11
+
+        // let someLet =10;
+        // let someLet = 11; // syntaxError
+
+
+        
+
+
+
+        
     </script>
 </body>
 </html>
