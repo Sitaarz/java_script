@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // "use strict" - stric mode wprowadzony w Ecma Script 5
+        // służy do zakazania używania zmiennych globalnych
+
+        function check(){
+            "use strict"
+            b=5;
+        }
+
+        // console.log(b); //Uncaught ReferenceError: b is not defined
+
+
+        // Przesłonięcie oraz zmienna globalna
+        let x= 10;
+        if(true){
+            let x = 9; // Przesłonięcie
+            console.log("Inner x: ",x);
+            x=15
+            console.log("Changed inner x: ", x);
+
+            window.x = 11;
+            console.log("Global x: ", window.x);
+        }
+    </script>
+</body>
+</html>
