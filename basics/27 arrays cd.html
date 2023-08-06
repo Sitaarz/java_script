@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let cars = ["dodge", "ferrari", "mercedes"];
+        cars.unshift("mazda",1); //dodaje elementy na początku tablicy
+        console.log(cars);
+
+        let car = cars.shift(); //usówa i zwraca elment z początku tablicy
+        console.log(car);
+
+        let arr1 = ["Ania", "Robert", "Zuzanna", "Kacper"];
+        arr1.splice(2,0, "Oliwier"); //dodaje elementy na dowolnym indeksie i ewentualnie usówa podaną przez nas ilość elementów
+        console.log(arr1);
+
+        let arr2 = ["Ania", "Robert", "Zuzanna", "Kacper"];
+        arr2.splice(2,1,"Oliwier");
+        console.log(arr2);
+
+        arr2.splice(1,2,"Gucio", "Joanna");
+        console.log(arr2); [ "Ania", "Gucio", "Joanna", "Kacper" ]
+        
+        let joannaIndex = arr2.indexOf("Joanna"); // zwraca indeks szukanego elementu lub -1 przy jego braku
+        console.log(joannaIndex); // 2
+
+        arr2.unshift("Joanna");
+        let joannaIndex2 = arr2.indexOf("Joanna");
+        console.log(joannaIndex2); // 0
+
+        let lastJoannaIndex = arr2.lastIndexOf("Joanna"); // zwraca indeks pierwszego napotkanego elementu szukając od końca
+        console.log(lastJoannaIndex); //3
+
+        let lastJoannaIndex2 = arr2.lastIndexOf("Joanna", 2);
+        console.log(lastJoannaIndex2) // 0 - przeszukuje od indeksu 2 do początku
+
+        let sortedArr = arr2.sort(); // sortuje tablice alfabetycznie
+        console.log(sortedArr);
+
+        let reverseSortedArr = arr2.sort().reverse();
+        console.log(reverseSortedArr);
+
+        let numberArr = [1,3,234,22,-2,123,0];
+        let sortedNumberArr=numberArr.sort();
+        console.log(sortedNumberArr); //sortuje alfabetycznie
+
+        function sortNumbers(a,b){
+            return a-b;
+        }
+
+        let sortedNumberArr2 = numberArr.sort(sortNumbers);
+        console.log(sortedNumberArr2); //[ -2, 0, 1, 3, 22, 123, 234 ]
+
+        let numberArrSquared = numberArr.map(function(value, index, array){
+            return value*value; // zwraca tablice z wykonaną operacją na każdym elemencie tablicy
+        })
+        console.log(numberArrSquared);
+
+        let arr3 = sortedNumberArr.filter(function(value){
+            return value > 100 //zwraca tablicę tylko z elementami wskazanymi przez szablon w funkcji
+        })
+        console.log(arr3); // [ 123, 234 ]
+
+        let sum = sortedNumberArr2.reduce(function(accumulator, currentValue, index, array){
+            return accumulator + currentValue //zwraca wartość do której operacja na każdym elemencie coś dodawała
+        })
+        console.log(sum);
+
+        let result = sortedNumberArr2.every(function(value){ // zwraca true lub false w zależności od tego 
+            return value > 0; // false                       // czy każdy element spelnia warunek przekazany w funkcji
+        })
+        console.log(result);
+
+        const objects = [{id:1}, {id:2}, {id:3}];
+        let serchedObject = objects.find(function(obj) { // zwraca objekt spełniający podane kryteria
+            return obj.id == 1;
+        })
+        console.log(serchedObject);
+
+        let objIndex = objects.findIndex(function(o){ // zwraca indeks objektu spełniającego podane kryteria
+            return o.id==1;
+        })
+        console.log(objIndex);
+
+        const fruits = ["jabłko", "malina", "cytryna"]
+        let flag = fruits.includes("malina"); 
+        console.log(flag); // true
+
+
+
+        //LEARNING
+        // dodaje elementy na początku tablicy                                                                    unshift  
+        // usówa i zwraca elment z początku tablicy                                                               shift
+        // dodaje elementy na dowolnym indeksie i ewentualnie usówa podaną przez nas ilość elementów              splice
+        // zwraca indeks szukanego elementu lub -1 przy jego braku                                                indexOf
+        // zwraca indeks pierwszego napotkanego elementu szukając od końca                                        lastIndexOf
+        // sortuje tablicę alfabetycznie lub według wzoru zawartego w przekazanej funkcji                         sort
+        // zwraca tablicę z wykonaną operacją na każdym elemencie tablicy                                         map
+        // zwraca tablicę tylko z elementami wskazanymi przez szablon w funkcji                                   filter
+        // zwraca wartość do której operacja na każdym elemencie coś dodawała                                     reduce                            
+        // zwraca true lub false w zależności od tego czy każdy element spelnia warunek przekazany w funkcji      every
+        // zwraca objekt spełniający podane kryteria                                                              find
+        // zwraca indeks objektu spełniającego podane kryteria                                                    findIndex
+
+    </script>
+</body>
+</html>
