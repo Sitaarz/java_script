@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //tablice to uporządkowana kolekcja elementów
+      //tablica są obiektem
+      //tablica jest typem złożonym
+
+      let a = []; // pusta tablica
+      let b = [22, "tekst", { a: 1 }, [5, 4, 3, 2], function () {}, null];
+      console.log(b);
+      console.log("Długość tablicy: ", b.length); // 6
+      console.log(b[6]); // undefined
+      console.log(b[0]); //22
+
+      //tablice są mutowalne - nie powstaje nowy obiekt w pamięci podczas modyfikacji
+      b[2] = 99;
+      console.log(b);
+
+      let c = new Array(12, "Tablica");
+      console.log(c);
+
+      let d = Array(1, 2, 3);
+
+      let e = [];
+      e[0] = "tekst";
+      e[7] = "tekst 2";
+      console.log(e);
+      e[e.length] = "tekst3";
+      e.push("tekst4");
+
+      f = [0, 1, 2,3,4,5,6,7];
+      console.log(f) //[0,1,2,3,4,5,6,7]
+      f.length=4;
+      console.log(f); //[0,1,2,3]
+    
+      delete f[1];
+      console.log(f);
+
+      console.log(1 in f); //false
+      console.log(2 in f) //true
+
+      let g = Array(5).fill(7);
+      console.log(g); //[7,7,7,7,7]
+
+      // iterowanie - przechodzenie przez tablicę
+
+      let h = [99, 56, 45, "tekst", true];
+
+      console.log("\nIterowanie przez tablicę:")
+      for (let i=0;i<h.length;i++){
+        console.log(`${i}. ${h[i]}`);
+      }
+
+      let arr1 = ["el1", "el2", "el3"];
+
+
+      //Pętla foreach
+      arr1.forEach(function(element,index,array){
+        console.log(element);
+      });
+
+      let arr2 = arr1.concat( [1,2,3])
+      console.log(arr2);
+
+      let arr3 = arr1.concat([1,2,3], [4,5,6]);
+      console.log(arr3);
+      
+      let strFromArr = arr3.join(); // tworzy string z wszystkich elementów tablicy
+      console.log(strFromArr);
+
+      let strFromArr2 = arr3.join(separator="|");
+      console.log(strFromArr2);
+
+      console.log(arr3);
+      let arr4 = arr3.reverse();
+      console.log(arr4);
+
+      arr4.push(99);
+      console.log(arr4);
+      
+      let arrP1 = arr4.pop(); // zwraca i usowa ostatni element z tablicy
+      console.log(arrP1);
+      console.log(arr4);
+
+      
+
+    </script>
+  </body>
+</html>
