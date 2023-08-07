@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var car = {
+            name: "Chevrolet",
+            model: "Mako Shark",
+            year: 1995,
+            details: {
+                type: "concept car",
+                codeName: "XP-755"
+            },
+
+            information: function(){
+                console.log(this.name, this.model, this.details.type);
+            }
+        }
+
+        car.information(); // Chevrolet Mako Shark concept car
+
+        // Przykłady funkcji konstruujących
+        var d = new Date(2047, 12, 16);
+        var arr = new Array(12, 1, 15); // [12,1,15]
+        var str = new String(10); //"10"
+        var n = new Number("1234");
+        var b = new Boolean({}) // true
+
+
+        //funkcja konstruujaca dla Car
+        function Car(brand,model){
+            if(!(this instanceof Car)){
+                return new Car(brand,model)
+            }
+            this.brand = brand;
+            this.model = model;
+            this.printInfo = function(){
+                console.log(this.brand,this.model);
+            }
+        }
+
+        var car1 = new Car("ferrari", "f11");
+        car1.printInfo();
+    </script>
+</body>
+</html>
