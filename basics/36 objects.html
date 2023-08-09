@@ -45,6 +45,169 @@
 
         var car1 = new Car("ferrari", "f11");
         car1.printInfo();
+
+        // Oject.create(proto) - tworzy nowy obiekt na podstawie przekazanego obiektu
+        var person = {name: "Wiesław", surname: "Czechowicz", age: 22 }
+
+        var perconCopy = Object.create(person);
+
+
+        // dostęp do pól obiektu
+        var obj = {
+            name: "test", size:10,
+            log: function(){
+                console.log(this.name, this.size);
+            }
+        };
+
+        console.log(obj.name) //test
+        console.log(obj["size"]); //10
+        obj["log"](); //test 10
+
+        obj.codeName = "XP"; // dodanie nowej właściwości
+        obj["codeName"] = "GD";
+
+        delete obj.name // skasowanie właściwości
+
+
+
+        // Sprawdzanie czy dana właściwość znajduje sięw obiekcie
+        var plane = {name: "BlackBird", brand: "Lockhead"};
+        if("name" in plane) console.log(plane.name );
+        if("model" in plane) console.log(plane.model);
+
+        // Czy obiekt plane ma właściwość brand
+        if(plane.hasOwnProperty("brand")) console.log(plane.brand);
+        
+
+
+        // Referencje do objektów
+        var num = 10;
+        var secondNum = num;    // W przypadku prymitywów zostanie utworzona nowa zmienna
+                                // w innym miejscu pamięci
+        num++;
+        console.log("num:" + num + " secondNum:" + secondNum) //num:11 secondNum:10
+
+        // obiekty są przekazywane przez referencję
+        var obj = { num:5 };
+        var data = obj;
+        obj.num++;
+        console.log("obj.num:" + obj.num + " data.num:" + data.num); // obj.num:6 data.num6
+        console.log(obj === data); // true - posiadają referencje do tego samego obiektu
+
+
+
+
+        // const a referencja do obiektu
+        const a = 5
+        // a=10 // Uncaught TypeError: invalid assignment to const 'a'
+
+        const abc = {"data":5}; 
+        // abc = {"napis": "witam"}; // Uncaught TypeError: invalid assignment to const 'abc'
+        abc.data = 8; // const dotyczy referencji do obiektu a nie jego właściwości
+
+
+
+
+        // Enumeracja właściwości obiektu
+        // Objekty mogą mieć wiele właściwości. Enumeracja pozwala na odczytanie właściwości obiektu
+
+        var obj = { a:10, b: "text", print: function(){}};
+
+        for(prop in obj){
+            if(obj.hasOwnProperty(prop)) console.log("prop:" + prop + " obj.prop: " + obj[prop]+"\n") // typeof prop == string
+            
+        }
+        /*
+            prop:a obj.prop: 10
+            prop:b obj.prop: text
+            prop:print obj.prop: function(){}
+        */
+
+
+
+        // Object.keys()
+        const objKeys = Object.keys(obj); // [ "a", "b", "print" ]
+        for(let i = 0; i < objKeys.length; i++){
+            let objPropertyName = objKeys[i];
+            console.log("prop:" + objPropertyName + " obj.prop: " + obj[objPropertyName]+"\n")
+        }
+
+
+
+        // Object.values()
+        const objValues = Object.values(obj);
+
+        for(let i = 0; i< objValues.length; i++){
+            console.log("value: " + objValues[i] + "\n");
+        }
+
+
+
+        // Object.entries()
+        const objEntries = Object.entries(obj);
+        for ([key,value] of objEntries){
+            console.log("key:" + key + " value: " + value + "\n");
+        }
+
+
+
+        // Object.assign()
+        const sourceObj = {data: 10, str:"txt"}
+        var clone = {num: 10};
+        var result = Object.assign(clone, sourceObj);
+
+        console.log(result); // Object { num: 10, data: 10, str: "txt" }
+        console.log(result === clone); // true
+
+
+
+        // deepCopy z użyciem JSON.stringify() oraz JSON.parse()
+        var source = { str:"txt", num:10, date: new Date(2030,12,12), obj: {x:7}}
+        var copy = JSON.parse(JSON.stringify(source))
+
+        console.log(source === copy) // false - inne miejsca w pamięci
+        console.log(source.obj === copy.obj) // false - inne miejsca w pamięci
+        console.log(typeof source.date) // object - !!!
+        console.log(typeof copy.date) // string - !!!
+
+
+
+
+
+        // Gettery oraz settery
+        var osoba = {
+            _name: null,
+
+            set name(name){
+                if(typeof name == "string"){
+                    this._name = name[0].toUpperCase() + name.substr(1,name.length);
+                }
+            },
+
+            get name(){
+                return this._name;
+            }
+        }
+
+        osoba.name="marek"
+        console.log(osoba.name); // Marek
+
+
+        var someObj = {number:5};
+
+        Object.defineProperty(someObj, "propName", {
+            value:20,
+            writable :true, // false oznacza, że zmienna jest tylko do odczytu
+            configurable: true, // może być później skasowana
+            enumerable: true // może byc iterowana w pętli for in
+        })
+        
+        console.log(someObj.propName); // 20
+        delete someObj.propName;
+        console.log(someObj.propName); // undefined
+
+
     </script>
 </body>
 </html>
