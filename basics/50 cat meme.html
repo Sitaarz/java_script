@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display:flex;
+            justify-content: center;
+            width: 100vw;
+            height: 100vw;
+            background: white;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+        #content-perload{
+            height: 20vh;
+        }
+        #content{
+            height:60vh;
+        }
+        #text{
+            font: 1.4rem Verdana, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <img src="" alt="" id="content-preload">
+        <img src="" alt="" id="content">
+        <div id="text"></div>
+    </div>
+
+    <script>
+        const randomMeme = {
+            contentPreload: document.getElementById("content-preload"),
+            content: document.getElementById("content"),
+            text: document.getElementById("text"),
+            
+
+            init: function () {
+                console.log("App Started")
+                this.getContent();
+            },
+
+            getContent: async function() {
+                const Url = "https://randomuser.me/api/";
+                const response = await fetch(Url);
+                const data = await response.json();
+
+                this.showPerson(data.results[0])
+            },
+
+            preloadPerson : function(data){
+                
+            },
+
+            showPerson : function(data){
+                // console.log(data);
+                const imgSrc = data.picture.large ;
+                const name = data.name.first;
+                const surname = data.name.last;
+
+                this.content.src = imgSrc;
+                this.text.innerHTML += (name + " " +surname) ;
+            }
+
+        };
+
+        randomMeme.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name: "Ola",
+            surname: "Kowalska",
+            printname: function() {
+                console.log(this.name);
+            },
+            printSurname: function(){
+                console.log(this.surname);
+            }
+
+        };
+
+        person.name = "Ania";
+        person.printname();
+        person["name"] = "Joanna";
+        person["printname"]();
+
+        const newProp = "age";
+        person[newProp] = 30;
+
+        console.log(person[newProp]);
+        person.printAge = function(){
+            console.log(this[newProp]);
+        }
+
+        person["printAge"](); // 30
+        if(newProp in person){
+            console.log("Istnieje: " + person[newProp]);
+        }
+
+        if(person.hasOwnProperty(newProp)){
+            console.log("posiada");
+            console.log(person[newProp])
+        }
+
+        // referencje do obiektów
+        let obj1 = {
+            name: "Ford"
+        }
+
+        let obj2 = obj1; // przypisujemy referencję do obj1
+        obj2.name = "Dodge"
+        console.log(obj1.name); // Dodge
+
+        console.log(obj1 === obj2) // true - sprawdza typ objektu, a następnie czy wskazują na to samo miejsce w pamięci
+
+        const obj3 = obj2;
+        console.log(obj3.name);
+        // obj3 = {
+        //     name: "Citroen"
+        // } // błąd - przypisanie do stałej
+
+        obj3.name = "ferrari"
+        console.log(obj3.name, obj1.name, obj2.name);
+
+        // enumeracja właściwości
+        let o = {a:1, b: [], c: "tekst", d: 99}
+
+        for(prop in o){
+            console.log(prop, o[prop])
+        }
+
+        
+        const oKeys = Object.keys(o);
+        console.log(oKeys);
+        oKeys.forEach(function(el){
+            console.log(el)
+        })
+
+        const oValues = Object.values(o);
+        oValues.forEach(function(el){
+            console.log(el)
+        })
+
+        const objEntries = Object.entries(o);
+        console.log(objEntries);
+        // pętla for of
+        for([key,value] of objEntries){
+            console.log(key,value)
+        }
+
+        const sourceObj = {
+            name: "Ania",
+            city: "Warszawa",
+            arr: [1,2,3]
+
+        }
+
+        const copyObj = Object.assign({surname: "Kowalska"}, sourceObj, {street: "Wilcza"}, {age: 21}, {arr2 :[]}); // płytka kopia - kopiowane są wyłącznie prymitywy, objekty są współdzielone
+        console.log(copyObj);
+        console.log(sourceObj.arr === copyObj.arr)
+
+        //gettery i settery
+        const car1 = {
+            model: "Ferrari",
+            setModel: function(model){
+                if(typeof model == "string") this.model = model;
+            },
+            getModel: function(){
+                return this.model;
+            }
+        }
+        
+        car1.setModel("Dodge");
+        car1.model = "GMC";
+        console.log(car1["model"]); // GMC
+
+
+
+
+        // nadawanie atrybutowi _name własności prywatnych
+        const user = {
+            _name: "Ola",
+            
+            set name(newName){
+                if(typeof newName == "string"){
+                    this._name = newName;
+                }
+            },
+            get name(){
+                return this._name;
+            },
+            printName() {
+                console.log(this._name);
+            }
+
+        }
+
+        user.name = "Ola"
+
+        user.printName();
+    </script>
+</body>
+</html>

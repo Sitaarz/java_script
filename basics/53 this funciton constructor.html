@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function User(name,age){
+            this.name = name;
+            this.age = age;
+            this.powitaj = function (){
+                console.log("witam! jestem",this.name,"mam",this.age,"lata")
+            }
+        }
+
+        let maciek = new User("Maciek",22)
+        maciek.powitaj();
+    </script>
+</body>
+</html>

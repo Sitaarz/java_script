@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="vehicle">porsche</div>
+    <div class = "vehicle">ford</div>
+    <div class="vehicle">skoda</div>
+    <div class="vehicle">ferrari</div>
+    <script>
+        for(let i = 0; i<3; i++){
+            setTimeout(function(){
+                console.log(i)
+            },1000)
+        }
+
+        for(var i =0; i<3; i++){
+
+            (function(a){
+                setTimeout(function(){
+                    console.log(a);
+                },1000)
+            })(i)
+        }
+
+        var cars = document.getElementsByClassName("vehicle")
+        for(let i = 0 ;i<cars.length;i++){
+            cars[i].onclick = function(){
+                console.log("car i:" + i,  cars[i])
+                cars[i].style.color = "red";
+            }
+        }
+
+
+    </script>
+</body>
+</html>

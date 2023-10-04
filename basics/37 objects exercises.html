@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // literał obiektu
+        let school = {
+            name: "SGH",
+            numStudents: 2000,
+            addres: {
+                country: "Poland",
+                city: "Warsaw"
+            },
+            students: [
+                {name:"Ania", age:21},
+                {name:"Kamil", age:23},
+                {name:"Maciek", age:22}
+            ],
+
+            printSchoolInfo: function(){
+                console.log("nazwa szkoły: "+this.name+ " Ilość studentów: " + this.numStudents +
+                " Adres: " + this.addres.country, this.addres.city )
+
+                this.students.forEach(function(student){
+                    console.log(`student: ${student.name}, wiek: ${student.age}`)
+                })
+            }
+        }
+
+        school.printSchoolInfo();
+
+        function generateStudent(name, age){
+            return {
+                name: name,
+                age: age,
+                address: {
+                    country: "Poland",
+                    city: null,
+                    street: null
+                },
+
+                getName: function(){
+                    return this.name;
+                }
+            }
+        }
+
+        const student1 = generateStudent("Maciek", 22);
+        student1.address.street = "Mickiewicza";
+        student1.address.city = "Gdańsk";
+
+        console.log(student1);
+
+        // funkcje konstruujące
+        // z wykorzystanie new
+
+        let date1 = new Date(2030, 11, 11);
+        console.log(date1);
+
+        function Bus(brand, model, productionDate){
+            this.brand = brand,
+            this.model = model,
+            this.productionDate = productionDate,
+
+            this.printData = function(){
+                console.log(`brand: ${brand} model: ${model} productionDate: ${productionDate}`)
+            }
+        }
+
+        const bus1 =  new Bus("Solaris", "city", 2020)
+        bus1.country = "Poland";
+        bus1.printData();
+
+        // New tworzy nowy obiekt. Bez niego this z funkcji konstruującej odnosi się do window
+
+        let plane = new Object();
+        plane.model = "Tupolew";
+        plane.country = "Smoleńsk";
+
+
+        let brand = {brand:"Ford"}
+        let car = Object.create(brand);
+        console.log(car);
+        let car2 = Object.create(brand);
+
+        console.log(car2);
+        
+
+
+
+    </script>
+</body>
+</html>

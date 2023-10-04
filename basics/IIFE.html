@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // IIFE - immediately invoked function expression
+
+        //róznice pomiedzy var i let
+        // *let ma zakres blokowy a var funkcyjny
+        // *let i var sa hoistowane. jednak przy probie odwolania sie do zmiennej zadeklarowanej przez var
+        // przed przypisaniem do niej wartosci otrzymamy undefined. W przypadku let zostanie wyrzucony błąd kompoilatora
+        // *za pomoca var mozna zadeklarowac zmienna z tą samą nazwą w ym samym zakresie. Za pomocą let można zadeklarować ją tylko raz
+
+        const clock = (function(){
+            // console.log("start")
+
+            let clockInfo = () => {
+                const date = new Date();
+                console.log(date.toLocaleTimeString());
+            }
+
+            let startClock = () => {
+                setInterval(() =>
+                { 
+                    clockInfo();
+                },1000)
+            }
+
+            return {
+                start: startClock
+            }
+        })()
+
+        clock.start()
+        
+    </script>
+</body>
+</html>

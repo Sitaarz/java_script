@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test(){
+            // return // domyślnie zwraca undefined
+            let someData = 10;
+            return function(){
+                console.log("test", someData)
+            }
+        }
+
+        let foo = test();
+        foo(); //test 10
+
+        function bar() {
+            for(let i = 0; i<10; i++){
+                // if(i===5) return "bar"
+                if(i===3) break
+                console.log(i);
+            }
+            console.log("bar end")
+        }
+
+        bar();
+
+
+    </script>
+</body>
+</html>

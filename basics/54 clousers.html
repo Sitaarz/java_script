@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function outer(){
+            let a = 3
+            function inner(){
+                console.log(a);
+            }
+            return inner;
+        }
+
+        outer()()
+
+        //currying
+        function test(x){
+            return function test2(y){
+                console.log(x+y)
+            }
+        }
+        add10 = test(10)
+        add10(7);
+
+        function mnozenie(x){
+            return function(y){
+                console.log(x*y)
+            }
+        }
+
+        multiply=mnozenie(7)
+        multiply(10);
+
+        //moduł
+        function carDetails(){
+            let carName="unknown";
+
+            function getName(){
+                console.log(carName);
+            }
+
+            function setName(name){
+                carName=name;
+            }
+
+            return {
+                brand: carName,
+                getName: getName,
+                setName: setName
+            }
+        }
+
+        car = carDetails()
+        car.getName()
+        car.setName("Mustang")
+        car.getName();
+        
+    </script>
+</body>
+</html>

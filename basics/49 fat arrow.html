@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let test = (a,b,c) => a+b+c;
+        console.log(test(1,2,3));
+
+        let test2 = (a,b,c) => {return a+b+c}
+        console.log(test2(1,2,3));
+
+        let print = ()=>console.log(112);
+        print();
+
+        let getObj = () => ({name:"Ola", surname: "Kosłowska", printInfo: function(){
+            setTimeout(()=>console.log(this.name,this.surname),4000)
+        }})
+        let obj = getObj()
+
+    </script>
+</body>
+</html>

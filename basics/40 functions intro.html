@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // function statement
+        function foo(arg1, arg2, arg3){
+            console.log(arg1, arg2, arg3)
+        }
+    
+        foo("test1", "test2", 3)
+    
+        //function expression
+        const addNums = function(num1, num2){
+            return num1+num2;
+        }
+        
+        console.log(addNums(2,5));
+
+        console.log(typeof addNums) // function
+
+        console.dir(addNums.length);
+
+        addNums.something = "test";
+        console.log(addNums.toString())
+
+        // scope zakres zmiennych w funkcji
+
+        let globalVariable = 15;
+
+        function testScope(arg1){
+            "use strict"
+            // localTest=99;
+            let localVariable = 10;
+            console.log(localVariable, globalVariable, arg1);
+        }
+
+        testScope(7);
+
+
+        //zagnieżdżania funkcji
+        function testFunction1() {
+            const data = 10;
+
+            function test2(arg){
+                let data = 99;
+                return arg + data;
+            }
+
+            const result = test2(8);
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let userFormData = {
+            name:"Ola",
+            email: "ola@example.com"
+        }
+
+        function createUser(userFormData = createGuestUser()){
+            console.log(userFormData);
+        }
+
+        // przekazanie undefined powoduje przekazanie domyslnego obiektu, przekazanie null powoduje
+        // przekazanie null
+        createUser();
+
+        function createGuestUser(){
+            return {
+                name:"Guest",
+                email:null}
+        }
+    </script>
+</body>
+</html>

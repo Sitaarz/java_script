@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name: "Ola",
+            print: function(something, city){
+                console.log(this.name,something,city)
+            }
+        }
+        obj.print(); // Ola undefined undefined
+
+        let user = {name:"Rafał"}
+
+        obj.print.call(user,"Kot","Warszawa"); // Rafał Kot Warszawa
+        obj.print.apply(user,["Kot", "Warszawa"]); // Rafał Kot Warszawa
+
+
+        let car = {
+            brand: "Ford",
+            showInfo: function(year,color){
+                console.log(this.brand,year,color)
+            }
+        }
+
+        let superCar = {
+            brand: "Ferrari"
+        }
+
+        car.showInfo("2002","silver");
+        car.showInfo.call(superCar,"1990","red")
+        car.showInfo.apply(superCar,["1990","red"])
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // funkcja strzałkowa jest skróconym zapisem funkcji anonimowej
+        // => fat arrow
+
+        // wyrażenie funkcyjne
+        let expression = function(){}
+
+        //funkcja strzałkowa
+        const arrowBar = (a,b) => console.log(a,b);
+
+        // przy jednym argumencie można zapisać skrótowo
+        const shortArrowBar = a => console.log(a);
+
+        // zwracane wartości
+        let sum = (a,b) => {return a+b};
+        //skrócony zapis
+        let sum2 = (a,b) => a+b
+
+        const splitStr = str => str.split(" ");
+        var result = splitStr("jeden dwa trzy")
+        console.log(result);
+
+        // zwrócenie obiektu
+        let returnObject = () => {return {a:3, b:10}}
+        // let makeObject = () => ({a:10, b:13})
+
+
+        // fat arrow - zastosowania
+        // [2,3,4].forEach(function(el){
+        //     console.log(el);
+        // });
+
+        [1,2,3].forEach(element => {
+        console.log(element);   
+        });
+
+        // [3,4,5].forEach(function(el){console.log(el)})
+
+        let sum3 = [12,14,1].reduce((acc,el) => acc+el)
+        console.log("suma z tablicy:",sum3)
+        let dividedBy3 = [123, 123,123,523,123,5,123,3324,3,33,3,3,33,3,3123,1233,12312].filter(v =>v%3 ===0)
+        console.log(dividedBy3)
+
+        let suma = (...param) => param.reduce((acc,el) => acc+el)
+        console.log(suma(1,2,3))
+
+        
+
+    </script>
+</body>
+</html>

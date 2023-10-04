@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(this); // window
+
+        function foo(){
+            console.log(this)
+        }
+
+        foo() // window
+
+        function bar(){
+            "use strict"
+            console.log(this) // undefined
+        }
+        bar();
+
+        let obj = {
+            bar: function(){
+                "use strict"
+                console.log("bar:", this) // obj
+            }
+        }
+        obj.bar();
+
+        let car = {
+            name: "Mustang",
+            print: function(arg){
+                console.log(this.name,arg)
+            }
+        }
+        car.print("Chalanger")
+
+        let citroen = {
+            name:"Citroen"
+        }
+
+        car.print.call(citroen,"611")
+        
+    </script>
+</body>
+</html>
