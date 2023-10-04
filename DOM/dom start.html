@@ -9,7 +9,27 @@
     <h4>heading</h4>
     <a href="#">jakis tekst</a>
     <p id="paragraph">paragraph</p>
-    <div>some text</div>
-    <div>some text 2</div>
+    <div class = "box" id="div0">div0</div>
+    <div class = "box">div1
+        <div id="nested">nested</div>
+    </div>
+    <form action="">
+        <input type="text" name="email">
+    </form>
 </body>
+
+    <script>
+        let paragraph = document.getElementById("paragraph")
+        paragraph.innerHTML = "<b>witaj</b>"
+
+        let div0 = document.getElementsByTagName("div")[0]
+        div0.style.background = "green";
+        div0.textContent = "<b>witaj 2</b>"
+
+        let span = document.createElement("span");
+        span.innerHTML = "pewna <b>treść<b/>";
+        div0.appendChild(span);
+        
+        let nested = document.getElementsByTagName("body")[0].firstChild.innerHTML = "zmieniony paragraf"
+    </script>
 </html>
